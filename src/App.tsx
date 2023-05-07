@@ -22,13 +22,9 @@ function App() {
   return (
     <>
       <h1>Autocomplete Select Box React Component</h1>
-      <div>
+      <div className="box-container">
         <AutoCompleteSelectBox options={mockOptionsList} />
       </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }

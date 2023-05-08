@@ -1,18 +1,16 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import DropDownIcon from "../../assets/icon-dropdown.svg";
+import SelectBoxOptions from "../SelectBoxOptions/index";
+import type { SelectBoxOptionType } from "../../interfaces/interfaces";
+
 import "./index.scss";
 
-interface SelectBoxOptionType {
-  id: number;
-  value: string;
-}
-
-interface SelectBoxPropsType {
+interface AutoCompleteSelectBoxPropsType {
   options: SelectBoxOptionType[];
 }
-const AutoCompleteSelectBox: FunctionComponent<SelectBoxPropsType> = ({
-  options,
-}) => {
+const AutoCompleteSelectBox: FunctionComponent<
+  AutoCompleteSelectBoxPropsType
+> = ({ options }) => {
   const [activeOptionId, setActiveOptionId] = useState<number>(0),
     [showOptionsList, setShowOptionsList] = useState<boolean>(false),
     [filteredOptionsList, setFilteredOptionsList] =
@@ -29,6 +27,9 @@ const AutoCompleteSelectBox: FunctionComponent<SelectBoxPropsType> = ({
     event
   ) => {
     setQuery(event.target.value);
+  };
+  const handleOptionClick = (id: number): void => {
+    setActiveOptionId(id);
   };
 
   useEffect(() => {
@@ -55,16 +56,11 @@ const AutoCompleteSelectBox: FunctionComponent<SelectBoxPropsType> = ({
         </button>
       </div>
       {showOptionsList ? (
-        <ul className="options">
-          {filteredOptionsList.map((option) => (
-            <li
-              className={option.id === activeOptionId ? "active" : ""}
-              key={option.id}
-            >
-              {option.value}
-            </li>
-          ))}
-        </ul>
+        <SelectBoxOptions
+          options={filteredOptionsList}
+          activeOptionId={activeOptionId}
+          onSelect={handleOptionClick}
+        />
       ) : null}
     </div>
   );

@@ -8,6 +8,11 @@ ul.options {
 
   li {
     cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.25rem 0.5rem;
   }
   li:hover {
     background-color: #a6d4fa;

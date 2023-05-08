@@ -41,6 +41,7 @@ const AutoCompleteSelectBox: FunctionComponent<
       setFilteredOptionsList(filteredOptions);
     } else setFilteredOptionsList(options);
   }, [query]);
+  
   return (
     <div className="autocomplete">
       <div className="select-box">

@@ -14,12 +14,6 @@
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-}
-
-.box-container {
-  width: 20vw;
-  margin: auto;
 }

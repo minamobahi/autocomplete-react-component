@@ -8,6 +8,9 @@
 .box-container {
   width: 25vw;
   margin: auto;
+  @media (max-width: 767.98px) {
+    width: 35vw;
+  }
 }
 
 .read-the-docs {

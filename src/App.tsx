@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import AutoCompleteSelectBox from "./components/AutoCompleteSelectBox/index";
 import type { SelectBoxOptionType } from "./interfaces/interfaces";
-import "./App.css";
+import "./App.scss";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<SelectBoxOptionType[]>([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => {
-        const mappedUsersList = data.map((user) => ({
+        const mappedUsersList = data.map((user: any) => ({
           id: user.id,
           value: user.name,
         }));
